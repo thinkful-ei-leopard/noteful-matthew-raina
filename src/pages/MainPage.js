@@ -1,16 +1,14 @@
-import React from 'react';
-import Sidebar from '../Components/Sidebar'
-import NoteList from '../Components/NoteList'
+import React from "react";
+import Sidebar from "../components/Sidebar";
+import NoteList from "../components/NoteList";
 
-class MainPage extends React.Component {
-    render() {
-        return (
-            <div className="Main-Page">
-                <Sidebar folders={this.props.folders} />
-                <NoteList notes={this.props.notes}/>
-            </div>
-        );
-    }
+function MainPage(props) {
+  return (
+    <div className="Main-Page">
+      <Sidebar folders={props.folders} />
+      <NoteList notes={props.notes} />
+    </div>
+  );
 }
 
 export default MainPage;

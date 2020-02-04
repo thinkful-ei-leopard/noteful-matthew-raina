@@ -1,18 +1,23 @@
-import React from 'react';
-import { NavLink, Link } from 'react-router-dom'
-import Sidebar from '../Components/Sidebar'
-import NoteList from '../Components/NoteList'
-import STORE from '../STORE'
+import React from "react";
+import NoteSidebar from "../components/NoteSidebar";
+import STORE from "../STORE";
 
-
-class FolderPage extends React.Component {
-    render() {
-        return (
-            <div className="Folder-Page">
-            
-            </div>
-        );
-    }
+function NotePage(props) {
+  const { note } = props;
+  return (
+    <div className="Note-page">
+      <NoteSidebar
+        folder={STORE.folders.find(folder => folder.id === note.folderId)}
+        history={props.history}
+      />
+      <div className="Note">
+        <h2 className="Note_title">{note.name}</h2>
+        <p>Modified on {new Date(note.modified).toLocaleDateString()} </p>
+        <button className="delete-note">Delete Note</button>
+      </div>
+      <p className="Note-content">{note.content}</p>
+    </div>
+  );
 }
 
-export default FolderPage;
+export default NotePage;

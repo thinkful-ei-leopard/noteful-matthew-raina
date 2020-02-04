@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Header from "./Components/Header";
+import Header from "./components/Header";
 import { Route, Switch } from "react-router-dom";
 import MainPage from "./pages/MainPage";
 import NotePage from './pages/NotePage';
@@ -23,17 +23,17 @@ class App extends Component {
         <Header />
         <main className="App">
           <Switch>
-            <Route path="/" render={
+            <Route exact path="/" render={
               (routerProps) => 
-                <MainPage notes={this.filterNotes()} folders={STORE.folders} />
+                <MainPage notes={this.filterNotes()} folders={STORE.folders} {...routerProps} />
             }/>
-            <Route path="/folder/:folderID" render={
+            <Route exact path="/folder/:folderId" render={
               (routerProps) =>
-                <MainPage notes={this.filterNotes(routerProps.match.params.folderID)} folders={STORE.folders}/>
+                <MainPage notes={this.filterNotes(routerProps.match.params.folderId)} folders={STORE.folders} {...routerProps} />
             } />
-            <Route path="/note/:noteID" render={
+            <Route exact path="/note/:noteId" render={
               (routerProps) =>
-                <NotePage />
+                <NotePage note={STORE.notes.find(note => note.id === routerProps.match.params.noteId)} {...routerProps} />
             }/>
           </Switch>   
         </main>
