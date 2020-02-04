@@ -1,14 +1,13 @@
 import React from 'react';
-import Sidebar from '../components/Sidebar'
-import NoteList from '../components/NoteList'
-import STORE from '../STORE'
+import Sidebar from '../Components/Sidebar'
+import NoteList from '../Components/NoteList'
 
 class MainPage extends React.Component {
     render() {
         return (
             <div className="Main-Page">
-                <Sidebar folders={STORE.folders} />
-                <NoteList notes={STORE.notes}/>
+                <Sidebar folders={this.props.folders} />
+                <NoteList notes={this.props.notes}/>
             </div>
         );
     }
