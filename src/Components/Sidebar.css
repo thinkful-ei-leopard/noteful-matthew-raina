@@ -1,0 +1,15 @@
+
+
+.Sidebar li {
+    list-style: none;
+}
+
+
+.Sidebar {
+    width: 30%;
+    float: left;
+}
+
+button.add-folder {
+    margin-left: 10%;
+}

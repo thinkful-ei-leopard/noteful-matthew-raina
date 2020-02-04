@@ -1,5 +1,6 @@
 import React from "react";
 import Note from "./Note";
+import './NoteList.css'
 
 function NoteList(props) {
   return (

@@ -7,7 +7,7 @@ function Note(props) {
     <div>
       <div className="Note">
         <h2 className="Note_title">
-          <Link to={`/note/${props.id}`}>{props.name}</Link>
+          <Link style={{textDecoration: 'none', color: 'black'}} to={`/note/${props.id}`}>{props.name}</Link>
         </h2>
         <p>Modified on {new Date(props.modified).toLocaleDateString()} </p>
         <button className="delete-note">
